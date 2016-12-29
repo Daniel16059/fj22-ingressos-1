@@ -1,5 +1,7 @@
 package br.com.caelum.ingresso.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -17,5 +19,9 @@ public class FilmeDao {
 	
 	public void salva(Filme filme){
 		manager.persist(filme);
+	}
+
+	public List<Filme> lista() {
+		return manager.createQuery("select f from Filme f", Filme.class).getResultList();
 	}
 }

@@ -30,8 +30,8 @@ public class FilmeDto {
 		return duracao;
 	}
 
-	public void setDuracao(Duration duracao) {
-		this.duracao = duracao;
+	public void setDuracao(long duracao) {
+		this.duracao = Duration.ofMinutes(duracao);
 	}
 
 	public Filme toFilme() {

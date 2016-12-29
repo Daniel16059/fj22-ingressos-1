@@ -11,9 +11,16 @@ public class Filme {
 
 	@Id
 	@GeneratedValue
-	private final Integer id;
-	private final String nome;
-	private final Duration duracao;
+	private Integer id;
+	private String nome;
+	private Duration duracao;
+
+	/**
+	 * @deprecated hibernate only
+	 */
+	public Filme(){
+		
+	}
 
 	public Filme(Integer id, String nome, Duration duracao) {
 		this.id = id;
