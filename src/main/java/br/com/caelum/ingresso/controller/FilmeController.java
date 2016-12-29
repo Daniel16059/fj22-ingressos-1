@@ -17,7 +17,7 @@ public class FilmeController {
 
 	@RequestMapping(value="/filme", method=RequestMethod.GET)
 	public String form(){
-		return "filme";
+		return "filme/filme";
 	}
 
 	@RequestMapping(value="/filme", method=RequestMethod.POST)
@@ -29,6 +29,6 @@ public class FilmeController {
 	@RequestMapping(value="/filmes")
 	public String lista(Model model){
 		model.addAttribute("filmes", dao.lista());
-		return "lista";
+		return "filme/lista";
 	}
 }
