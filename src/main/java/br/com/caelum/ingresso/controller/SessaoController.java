@@ -27,7 +27,6 @@ public class SessaoController {
 	
 	@RequestMapping(value="/sessao", method=RequestMethod.POST)
 	public String salva(SessaoDto sessao){
-		System.out.println(">>>>>>>>>>>>>>>>Horario : " + sessao.getHorario());
 		sessaoDao.adiciona(sessao.toSessao(cinemaDao));
 		return "adicionado";
 	}
