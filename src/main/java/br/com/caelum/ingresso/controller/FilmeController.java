@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.caelum.ingresso.dao.FilmeDao;
-import br.com.caelum.ingresso.dto.FilmeDto;
+import br.com.caelum.ingresso.modelo.Filme;
 
 @Controller
 public class FilmeController {
@@ -21,8 +21,8 @@ public class FilmeController {
 	}
 
 	@RequestMapping(value="/filme", method=RequestMethod.POST)
-	public String salva(FilmeDto filme){
-		dao.salva(filme.toFilme());
+	public String salva(Filme filme){
+		dao.salva(filme);
 		return "adicionado";
 	}
 	
