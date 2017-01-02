@@ -3,13 +3,23 @@ package br.com.caelum.ingresso.dto;
 import java.time.LocalTime;
 
 import br.com.caelum.ingresso.dao.CinemaDao;
+import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.modelo.Sessao;
 
 public class SessaoDto {
 
 	private Integer cinemaId;
 	private LocalTime horario;
+	private Integer filmeId;
 	
+	public Integer getFilmeId() {
+		return filmeId;
+	}
+
+	public void setFilmeId(Integer filmeId) {
+		this.filmeId = filmeId;
+	}
+
 	public Integer getCinemaId() {
 		return cinemaId;
 	}
@@ -26,8 +36,8 @@ public class SessaoDto {
 		this.horario = horario;
 	}
 
-	public Sessao toSessao(CinemaDao cinemaDao) {
-		return new Sessao(horario, cinemaDao.busca(cinemaId));
+	public Sessao toSessao(CinemaDao cinemaDao, FilmeDao filmeDao) {
+		return new Sessao(horario, cinemaDao.busca(cinemaId), filmeDao.busca(filmeId));
 	}
 
 }

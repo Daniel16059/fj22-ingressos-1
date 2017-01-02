@@ -20,6 +20,15 @@
             	</c:forEach>
             </select>
          </div>
+         
+           <div class="form-group">
+            <label for="filme">Filme:</label>
+            <select name="filmeId" class="form-control">
+            	<c:forEach var="filme" items="${filmes}">
+            		<option value="${filme.id}">${filme.nome}</option>
+            	</c:forEach>
+            </select>
+         </div>
 
          <button type="submit" class="btn btn-primary">Gravar</button>
     </form>

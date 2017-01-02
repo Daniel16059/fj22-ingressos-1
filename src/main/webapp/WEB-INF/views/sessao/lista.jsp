@@ -11,6 +11,8 @@
 		<thead>
 			<tr>
 				<th>Nome</th>
+				<th>Cinema</th>
+				<th>Filme</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -18,6 +20,7 @@
 				<tr>
 					<td>${sessao.horario}</td>
 					<td>${sessao.cinema.nome}</td>
+					<td>${sessao.filme.nome}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.caelum.ingresso.dao.CinemaDao;
+import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.dao.SessaoDao;
 import br.com.caelum.ingresso.dto.SessaoDto;
 
@@ -18,16 +19,20 @@ public class SessaoController {
 	
 	@Autowired
 	private SessaoDao sessaoDao;
+	
+	@Autowired
+	private FilmeDao filmeDao;
 
 	@RequestMapping(value="/sessao", method=RequestMethod.GET)
 	public String form(Model model){
 		model.addAttribute("cinemas", cinemaDao.lista());
+		model.addAttribute("filmes", filmeDao.lista());
 		return "sessao/sessao";
 	}
 	
 	@RequestMapping(value="/sessao", method=RequestMethod.POST)
 	public String salva(SessaoDto sessao){
-		sessaoDao.adiciona(sessao.toSessao(cinemaDao));
+		sessaoDao.adiciona(sessao.toSessao(cinemaDao, filmeDao));
 		return "adicionado";
 	}
 

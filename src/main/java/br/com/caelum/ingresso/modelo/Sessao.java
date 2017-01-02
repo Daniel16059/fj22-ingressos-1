@@ -16,16 +16,20 @@ public class Sessao {
 	private LocalTime horario;
 	@ManyToOne
 	private Cinema cinema;
+	@ManyToOne
+	private Filme filme;
 
+	
 	/**
 	 * @deprecated hibernate only
 	 */
 	protected Sessao(){	
 	}
 	
-	public Sessao(LocalTime horario, Cinema cinema) {
+	public Sessao(LocalTime horario, Cinema cinema, Filme filme) {
 		this.horario = horario;
 		this.cinema = cinema;
+		this.setFilme(filme);
 	}
 
 	public Integer getId() {
@@ -50,5 +54,13 @@ public class Sessao {
 
 	public void setCinema(Cinema cinema) {
 		this.cinema = cinema;
+	}
+
+	public Filme getFilme() {
+		return filme;
+	}
+
+	public void setFilme(Filme filme) {
+		this.filme = filme;
 	}
 }
