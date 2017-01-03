@@ -25,7 +25,7 @@ public class SessaoDao {
 		return manager.createQuery("select s from Sessao s", Sessao.class).getResultList();
 	}
 
-	public List<Sessao> buscaSessõesDoCinema(Integer cinemaId) {
+	public List<Sessao> buscaSessoesDoCinema(Integer cinemaId) {
 		return manager.createQuery("select s from Sessao s where s.cinema.id = :id",Sessao.class).setParameter("id", cinemaId).getResultList();
 	}
 	
