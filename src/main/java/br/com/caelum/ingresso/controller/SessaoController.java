@@ -38,22 +38,27 @@ public class SessaoController {
 	public String salva(SessaoDto sessao){
 		Filme filme = filmeDao.busca(sessao.getFilmeId());
 		List<Sessao> sessõesDoCinema = sessaoDao.buscaSessõesDoCinema(sessao.getCinemaId());
+		if(temHorarioDisponivel(sessao, filme, sessõesDoCinema)){
+			sessaoDao.adiciona(sessao.toSessao(cinemaDao, filmeDao));
+			return "adicionado";
+		}
+		return "erro";
+	}
+
+	public boolean temHorarioDisponivel(SessaoDto sessao, Filme filme, List<Sessao> sessõesDoCinema) {
 		for (Sessao sessaoDoCinema : sessõesDoCinema) {
 			if(sessaoDoCinema.getHorario().compareTo(sessao.getHorario()) <= 0){
 				if(sessaoDoCinema.getHorario().plusMinutes(sessaoDoCinema.getFilme().getDuracao().toMinutes()).compareTo(sessao.getHorario()) >= 0){
-					System.out.println("invalido");
-					return "erro";
+					return false;
 				}
 			}
 			else {
 				if(sessao.getHorario().plusMinutes(filme.getDuracao().toMinutes()).compareTo(sessaoDoCinema.getHorario()) >= 0){
-					System.out.println("invalido");
-					return "erro";
+					return false;
 				}
 			}
 		}
-		sessaoDao.adiciona(sessao.toSessao(cinemaDao, filmeDao));
-		return "adicionado";
+		return true;
 	}
 
 	@RequestMapping(value="/sessoes")
