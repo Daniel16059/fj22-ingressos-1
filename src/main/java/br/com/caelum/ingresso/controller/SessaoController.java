@@ -1,5 +1,7 @@
 package br.com.caelum.ingresso.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,8 @@ import br.com.caelum.ingresso.dao.CinemaDao;
 import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.dao.SessaoDao;
 import br.com.caelum.ingresso.dto.SessaoDto;
+import br.com.caelum.ingresso.modelo.Filme;
+import br.com.caelum.ingresso.modelo.Sessao;
 
 @Controller
 public class SessaoController {
@@ -32,6 +36,22 @@ public class SessaoController {
 	
 	@RequestMapping(value="/sessao", method=RequestMethod.POST)
 	public String salva(SessaoDto sessao){
+		Filme filme = filmeDao.busca(sessao.getFilmeId());
+		List<Sessao> sessõesDoCinema = sessaoDao.buscaSessõesDoCinema(sessao.getCinemaId());
+		for (Sessao sessaoDoCinema : sessõesDoCinema) {
+			if(sessaoDoCinema.getHorario().compareTo(sessao.getHorario()) <= 0){
+				if(sessaoDoCinema.getHorario().plusMinutes(sessaoDoCinema.getFilme().getDuracao().toMinutes()).compareTo(sessao.getHorario()) >= 0){
+					System.out.println("invalido");
+					return "erro";
+				}
+			}
+			else {
+				if(sessao.getHorario().plusMinutes(filme.getDuracao().toMinutes()).compareTo(sessaoDoCinema.getHorario()) >= 0){
+					System.out.println("invalido");
+					return "erro";
+				}
+			}
+		}
 		sessaoDao.adiciona(sessao.toSessao(cinemaDao, filmeDao));
 		return "adicionado";
 	}

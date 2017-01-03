@@ -2,6 +2,8 @@ package br.com.caelum.ingresso.dto;
 
 import java.time.LocalTime;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import br.com.caelum.ingresso.dao.CinemaDao;
 import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.modelo.Sessao;
@@ -9,6 +11,7 @@ import br.com.caelum.ingresso.modelo.Sessao;
 public class SessaoDto {
 
 	private Integer cinemaId;
+	@DateTimeFormat(pattern="HH:mm")
 	private LocalTime horario;
 	private Integer filmeId;
 	
