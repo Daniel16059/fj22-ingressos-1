@@ -5,21 +5,15 @@ import br.com.caelum.ingresso.dao.SalaDao;
 import br.com.caelum.ingresso.dao.SessaoDao;
 import br.com.caelum.ingresso.dto.SessaoDto;
 import br.com.caelum.ingresso.modelo.Filme;
-import br.com.caelum.ingresso.modelo.Sessao;
-import br.com.caelum.ingresso.services.SessaoService;
+import br.com.caelum.ingresso.modelo.Sala;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
-
 @Controller
 public class SessaoController {
-
-	@Autowired
-	private SessaoService sessaoService;
 
 	@Autowired
 	private SalaDao salaDao;
@@ -40,8 +34,9 @@ public class SessaoController {
 	@RequestMapping(value = "/sessao", method = RequestMethod.POST)
 	public String salva(SessaoDto sessao) {
 		Filme filme = filmeDao.busca(sessao.getFilmeId());
-		List<Sessao> sessõesDoCinema = sessaoDao.buscaSessoesDoCinema(sessao.getSalaId());
-		if (sessaoService.temHorarioDisponivel(sessao.getHorario(), filme, sessõesDoCinema)) {
+		Sala sala = salaDao.busca(sessao.getSalaId());
+
+		if (sala.temHorarioDisponivel(sessao.getHorario(), filme)) {
 			sessaoDao.adiciona(sessao.toSessao(salaDao, filmeDao));
 			return "adicionado";
 		}
