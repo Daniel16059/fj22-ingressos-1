@@ -4,13 +4,13 @@ import java.time.LocalTime;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import br.com.caelum.ingresso.dao.CinemaDao;
+import br.com.caelum.ingresso.dao.SalaDao;
 import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.modelo.Sessao;
 
 public class SessaoDto {
 
-	private Integer cinemaId;
+	private Integer salaId;
 	@DateTimeFormat(pattern="HH:mm")
 	private LocalTime horario;
 	private Integer filmeId;
@@ -23,12 +23,12 @@ public class SessaoDto {
 		this.filmeId = filmeId;
 	}
 
-	public Integer getCinemaId() {
-		return cinemaId;
+	public Integer getSalaId() {
+		return salaId;
 	}
 
-	public void setCinemaId(Integer cinemaId) {
-		this.cinemaId = cinemaId;
+	public void setSalaId(Integer cinemaId) {
+		this.salaId = cinemaId;
 	}
 
 	public LocalTime getHorario() {
@@ -39,8 +39,8 @@ public class SessaoDto {
 		this.horario = horario;
 	}
 
-	public Sessao toSessao(CinemaDao cinemaDao, FilmeDao filmeDao) {
-		return new Sessao(horario, cinemaDao.busca(cinemaId), filmeDao.busca(filmeId));
+	public Sessao toSessao(SalaDao salaDao, FilmeDao filmeDao) {
+		return new Sessao(horario, salaDao.busca(salaId), filmeDao.busca(filmeId));
 	}
 
 }

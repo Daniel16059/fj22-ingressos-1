@@ -1,7 +1,7 @@
 package br.com.caelum.ingresso.controller;
 
-import br.com.caelum.ingresso.dao.CinemaDao;
 import br.com.caelum.ingresso.dao.FilmeDao;
+import br.com.caelum.ingresso.dao.SalaDao;
 import br.com.caelum.ingresso.dao.SessaoDao;
 import br.com.caelum.ingresso.dto.SessaoDto;
 import br.com.caelum.ingresso.modelo.Filme;
@@ -22,7 +22,7 @@ public class SessaoController {
 	private SessaoService sessaoService;
 
 	@Autowired
-	private CinemaDao cinemaDao;
+	private SalaDao salaDao;
 
 	@Autowired
 	private SessaoDao sessaoDao;
@@ -32,7 +32,7 @@ public class SessaoController {
 
 	@RequestMapping(value = "/sessao", method = RequestMethod.GET)
 	public String form(Model model) {
-		model.addAttribute("cinemas", cinemaDao.lista());
+		model.addAttribute("salas", salaDao.lista());
 		model.addAttribute("filmes", filmeDao.lista());
 		return "sessao/sessao";
 	}
@@ -40,9 +40,9 @@ public class SessaoController {
 	@RequestMapping(value = "/sessao", method = RequestMethod.POST)
 	public String salva(SessaoDto sessao) {
 		Filme filme = filmeDao.busca(sessao.getFilmeId());
-		List<Sessao> sessõesDoCinema = sessaoDao.buscaSessoesDoCinema(sessao.getCinemaId());
+		List<Sessao> sessõesDoCinema = sessaoDao.buscaSessoesDoCinema(sessao.getSalaId());
 		if (sessaoService.temHorarioDisponivel(sessao.getHorario(), filme, sessõesDoCinema)) {
-			sessaoDao.adiciona(sessao.toSessao(cinemaDao, filmeDao));
+			sessaoDao.adiciona(sessao.toSessao(salaDao, filmeDao));
 			return "adicionado";
 		}
 		return "erro";

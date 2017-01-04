@@ -10,7 +10,7 @@
             <thead>
             <tr>
                 <th>Nome</th>
-                <th>Cinema</th>
+                <th>Sala</th>
                 <th>Filme</th>
                 <th>Duração</th>
             </tr>
@@ -19,7 +19,7 @@
             <c:forEach var="sessao" items="${sessoes}">
                 <tr>
                     <td>${sessao.horario}</td>
-                    <td>${sessao.cinema.nome}</td>
+                    <td>${sessao.sala.nome}</td>
                     <td>${sessao.filme.nome}</td>
                     <td>${sessao.filme.duracao.toMinutes()}</td>
                 </tr>

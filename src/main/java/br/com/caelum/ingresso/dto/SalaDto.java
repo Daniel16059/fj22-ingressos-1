@@ -1,8 +1,8 @@
 package br.com.caelum.ingresso.dto;
 
-import br.com.caelum.ingresso.modelo.Cinema;
+import br.com.caelum.ingresso.modelo.Sala;
 
-public class CinemaDto {
+public class SalaDto {
 
 	private Integer id;
 	private String nome;
@@ -23,8 +23,8 @@ public class CinemaDto {
 		this.nome = nome;
 	}
 
-	public Cinema toCinema(){
-		return new Cinema(nome);
+	public Sala toSala(){
+		return new Sala(nome);
 	}
 	
 }

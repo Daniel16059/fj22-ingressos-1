@@ -5,7 +5,7 @@
 
 <ingresso:template>
 	<jsp:body>
-    <form action='cinema' method="post">
+    <form action='/sala' method="post">
          <div class="form-group">
             <label for="nome">Nome:</label>
             <input type="text" name="nome" class="form-control">

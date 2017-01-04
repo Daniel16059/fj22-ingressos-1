@@ -13,10 +13,10 @@
             <input type="text" name="horario" class="form-control">
          </div>
          <div class="form-group">
-            <label for="cinema">Cinema:</label>
-            <select name="cinemaId" class="form-control">
-            	<c:forEach var="cinema" items="${cinemas}">
-            		<option value="${cinema.id}">${cinema.nome}</option>
+            <label for="sala">Sala:</label>
+            <select name="salaId" class="form-control">
+            	<c:forEach var="sala" items="${salas}">
+            		<option value="${sala.id}">${sala.nome}</option>
             	</c:forEach>
             </select>
          </div>

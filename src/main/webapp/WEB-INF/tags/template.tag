@@ -27,7 +27,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/sessoes">Sessões</a></li>
 					<li><a href="/filmes">Filmes</a></li>
-					<li><a href="/cinemas">Cinemas</a></li>
+					<li><a href="/salas">Salas</a></li>
 				</ul>
 			</div>
 

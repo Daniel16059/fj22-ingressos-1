@@ -13,15 +13,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="cinema" items="${cinemas}">
+			<c:forEach var="sala" items="${salas}">
 				<tr>
-					<td>${cinema.nome}</td>
+					<td>${sala.nome}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	<div class="col-md-6 col-md-offset-3">
-		<a href="/cinema" class="btn btn-block btn-info">Novo</a>
+		<a href="/sala" class="btn btn-block btn-info">Novo</a>
 	</div>
 	</jsp:body>
 </ingresso:template>

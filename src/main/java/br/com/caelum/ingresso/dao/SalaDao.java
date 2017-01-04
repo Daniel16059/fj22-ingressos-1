@@ -5,28 +5,27 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import br.com.caelum.ingresso.modelo.Sala;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.caelum.ingresso.modelo.Cinema;
-
 @Transactional
 @Repository
-public class CinemaDao {
+public class SalaDao {
 	
 	@PersistenceContext	
 	private EntityManager manager;
 
-	public void adiciona(Cinema cinema) {
-		manager.persist(cinema);
+	public void adiciona(Sala sala) {
+		manager.persist(sala);
 	}
 
-	public List<Cinema> lista() {
-		return manager.createQuery("select c from Cinema c", Cinema.class).getResultList();
+	public List<Sala> lista() {
+		return manager.createQuery("select c from Sala c", Sala.class).getResultList();
 	}
 
-	public Cinema busca(Integer cinemaId) {
-		return manager.find(Cinema.class, cinemaId);
+	public Sala busca(Integer salaId) {
+		return manager.find(Sala.class, salaId);
 	}
 	
 	

@@ -26,7 +26,7 @@ public class SessaoDao {
 	}
 
 	public List<Sessao> buscaSessoesDoCinema(Integer cinemaId) {
-		return manager.createQuery("select s from Sessao s where s.cinema.id = :id",Sessao.class).setParameter("id", cinemaId).getResultList();
+		return manager.createQuery("select s from Sessao s where s.sala.id = :id",Sessao.class).setParameter("id", cinemaId).getResultList();
 	}
 	
 }

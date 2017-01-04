@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Cinema {
+public class Sala {
 
 	@Id
 	@GeneratedValue
@@ -16,10 +16,10 @@ public class Cinema {
 	/**
 	 * @deprecated hibernate only
 	 */
-	protected Cinema(){
+	protected Sala(){
 		
 	}
-	public Cinema(String nome) {
+	public Sala(String nome) {
 		this.nome = nome;
 	}
 
