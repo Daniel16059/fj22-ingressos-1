@@ -23,6 +23,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
+		<div class="col-md-6 col-md-offset-3">
+			<a href="/filme" class="btn btn-block btn-info">Novo</a>
+		</div>
 	</jsp:body>
 </ingresso:template>

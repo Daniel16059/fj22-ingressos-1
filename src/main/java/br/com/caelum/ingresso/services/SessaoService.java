@@ -1,6 +1,5 @@
 package br.com.caelum.ingresso.services;
 
-import br.com.caelum.ingresso.dto.SessaoDto;
 import br.com.caelum.ingresso.modelo.Filme;
 import br.com.caelum.ingresso.modelo.Sessao;
 import org.springframework.stereotype.Service;

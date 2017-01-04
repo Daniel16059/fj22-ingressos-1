@@ -10,9 +10,34 @@
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 </head>
 <body>
-	<div class="col-md-4 col-md-offset-4">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Ingresso</a>
+			</div>
+
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/sessoes">Sessões</a></li>
+					<li><a href="/filmes">Filmes</a></li>
+					<li><a href="/cinemas">Cinemas</a></li>
+				</ul>
+			</div>
+
+		</div>
+	</nav>
+
+	<div class="col-md-6 col-md-offset-3">
 	<jsp:doBody/>
 	</div>
+	<script type="text/javascript" src="/assets/js/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 </body>
 
