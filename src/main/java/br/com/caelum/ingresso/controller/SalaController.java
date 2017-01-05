@@ -5,8 +5,11 @@ import br.com.caelum.ingresso.modelo.Sala;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
 
 @Controller
 public class SalaController {
@@ -15,12 +18,18 @@ public class SalaController {
 	private SalaDao dao;
 	
 	@RequestMapping(value= "/sala", method=RequestMethod.GET)
-	public String form(){
+	public String form(Sala sala){
 		return "sala/sala";
 	}
 
 	@RequestMapping(value="/sala", method=RequestMethod.POST)
-	public String salva(Sala sala){
+	public String salva(@Valid  Sala sala, BindingResult result, Model model){
+
+		if (result.hasErrors()){
+			model.addAttribute("result", result );
+			return form(sala);
+		}
+
 		dao.adiciona(sala);
 		return "adicionado";
 	}

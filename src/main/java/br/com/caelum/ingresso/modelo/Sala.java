@@ -1,5 +1,7 @@
 package br.com.caelum.ingresso.modelo;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
@@ -13,6 +15,7 @@ public class Sala {
 	@GeneratedValue
 	private Integer id;
 
+	@NotBlank
 	private String nome;
 
 	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
