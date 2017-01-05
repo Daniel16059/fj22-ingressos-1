@@ -24,4 +24,8 @@ public class FilmeDao {
 	public List<Filme> lista() {
 		return manager.createQuery("select f from Filme f", Filme.class).getResultList();
 	}
+
+	public Filme busca(Integer filmeId) {
+		return manager.find(Filme.class, filmeId);
+	}
 }
