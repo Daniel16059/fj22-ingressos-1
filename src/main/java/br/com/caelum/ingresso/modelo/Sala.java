@@ -3,6 +3,7 @@ package br.com.caelum.ingresso.modelo;
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,8 +15,8 @@ public class Sala {
 
 	private String nome;
 
-	@OneToMany(mappedBy = "sala")
-	private List<Sessao> sessoes;
+	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	private List<Sessao> sessoes = new ArrayList<>();
 
 	/**
 	 * @deprecated hibernate only
@@ -37,6 +38,10 @@ public class Sala {
 
 	public List<Sessao> getSessoes() {
 		return sessoes;
+	}
+
+	public void add(Sessao sessao){
+		this.sessoes.add(sessao);
 	}
 
 	public void setSessoes(List<Sessao> sessoes) {

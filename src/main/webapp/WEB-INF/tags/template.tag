@@ -25,7 +25,7 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/sessoes">Sessões</a></li>
+					<li><a href="/sessao">Sessão</a></li>
 					<li><a href="/filmes">Filmes</a></li>
 					<li><a href="/salas">Salas</a></li>
 				</ul>

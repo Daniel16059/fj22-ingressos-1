@@ -22,7 +22,7 @@ public class SalaTest {
         LocalTime horario = LocalTime.now();
 
 
-        List<Sessao> sessoes = Arrays.asList(new Sessao(horario, sala, filme));
+        List<Sessao> sessoes = Arrays.asList(new Sessao(horario, filme));
 
         sala.setSessoes(sessoes);
 
@@ -36,7 +36,7 @@ public class SalaTest {
         filme.setDuracao(120);
         LocalTime horario = LocalTime.now();
 
-        List<Sessao> sessoes = Arrays.asList(new Sessao(horario, sala, filme));
+        List<Sessao> sessoes = Arrays.asList(new Sessao(horario, filme));
 
         sala.setSessoes(sessoes);
 
@@ -53,7 +53,7 @@ public class SalaTest {
         filme.setDuracao(120);
         LocalTime horario = LocalTime.now();
 
-        List<Sessao> sessoes = Arrays.asList(new Sessao(horario, sala, filme));
+        List<Sessao> sessoes = Arrays.asList(new Sessao(horario, filme));
 
         sala.setSessoes(sessoes);
 

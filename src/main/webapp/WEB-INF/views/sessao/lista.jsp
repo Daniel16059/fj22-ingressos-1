@@ -6,20 +6,20 @@
 
 <ingresso:template>
     <jsp:body>
+
+        <h3>${sala.nome}</h3>
         <table class="table table-hover ">
             <thead>
             <tr>
                 <th>Nome</th>
-                <th>Sala</th>
                 <th>Filme</th>
                 <th>Duração</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="sessao" items="${sessoes}">
+            <c:forEach var="sessao" items="${sala.sessoes}">
                 <tr>
                     <td>${sessao.horario}</td>
-                    <td>${sessao.sala.nome}</td>
                     <td>${sessao.filme.nome}</td>
                     <td>${sessao.filme.duracao.toMinutes()}</td>
                 </tr>

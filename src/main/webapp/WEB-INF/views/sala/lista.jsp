@@ -10,12 +10,18 @@
 		<thead>
 			<tr>
 				<th>Nome</th>
+				<th>Ações</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="sala" items="${salas}">
 				<tr>
 					<td>${sala.nome}</td>
+					<td>
+						<a href="/sessoes/${sala.id}" class="btn btn-primary">
+							<span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>Sessões
+						</a>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>

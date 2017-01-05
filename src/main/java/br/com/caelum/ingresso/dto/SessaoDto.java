@@ -40,7 +40,7 @@ public class SessaoDto {
 	}
 
 	public Sessao toSessao(SalaDao salaDao, FilmeDao filmeDao) {
-		return new Sessao(horario, salaDao.busca(salaId), filmeDao.busca(filmeId));
+		return new Sessao(horario, filmeDao.busca(filmeId));
 	}
 
 }

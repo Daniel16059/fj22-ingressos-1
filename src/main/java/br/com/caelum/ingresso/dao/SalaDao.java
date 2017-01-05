@@ -27,7 +27,9 @@ public class SalaDao {
 	public Sala busca(Integer salaId) {
 		return manager.find(Sala.class, salaId);
 	}
-	
-	
-	
+
+
+	public void atualiza(Sala sala) {
+		manager.merge(sala);
+	}
 }
