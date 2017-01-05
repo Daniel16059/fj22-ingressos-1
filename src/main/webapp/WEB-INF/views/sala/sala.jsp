@@ -8,7 +8,7 @@
     <form action='/sala' method="post">
          <div class="form-group">
             <label for="nome">Nome:</label>
-            <input type="text" name="nome" class="form-control">
+            <input id="nome" type="text" name="nome" class="form-control">
          </div>
 
          <button type="submit" class="btn btn-primary">Gravar</button>

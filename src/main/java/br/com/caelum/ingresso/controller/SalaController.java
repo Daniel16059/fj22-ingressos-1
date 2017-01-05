@@ -1,7 +1,7 @@
 package br.com.caelum.ingresso.controller;
 
 import br.com.caelum.ingresso.dao.SalaDao;
-import br.com.caelum.ingresso.dto.SalaDto;
+import br.com.caelum.ingresso.modelo.Sala;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +20,8 @@ public class SalaController {
 	}
 
 	@RequestMapping(value="/sala", method=RequestMethod.POST)
-	public String salva(SalaDto cinema){
-		dao.adiciona(cinema.toSala());
+	public String salva(Sala sala){
+		dao.adiciona(sala);
 		return "adicionado";
 	}
 	
